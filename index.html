@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Finance Floor — A Skills Roadmap for MBA Finance Graduates</title>
+<meta name="description" content="A role-based skills roadmap for MBA Finance graduates in India: Equity Research, Wealth Management, Financial Data Analytics, Accounting & Taxation, Consulting, and Corporate/Retail Finance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380;0,9..144,560;0,9..144,680;1,9..144,480&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1220;
+    --ink-2:#0E1626;
+    --panel:#131D30;
+    --panel-2:#0F1728;
+    --line:rgba(237,231,217,0.13);
+    --line-soft:rgba(237,231,217,0.07);
+    --gold:#C9A227;
+    --gold-soft:#E4C465;
+    --gain:#3AAE74;
+    --loss:#C1443C;
+    --paper:#EDE7D9;
+    --paper-dim:#C7C2B4;
+    --muted:#8B93A7;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'IBM Plex Sans', -apple-system, Segoe UI, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 85% -10%, rgba(201,162,39,0.07), transparent 60%),
+      radial-gradient(900px 500px at -10% 20%, rgba(58,174,116,0.05), transparent 55%),
+      var(--ink);
+    color:var(--paper);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold); color:var(--ink);}
+  a{color:var(--gold-soft);}
+  :focus-visible{outline:2px solid var(--gold-soft); outline-offset:3px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- Ticker tape ---------- */
+  .tape{
+    background:var(--ink-2);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:9px 0;
+  }
+  .tape-track{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.02em;
+    color:var(--paper-dim);
+    animation:scroll-tape 42s linear infinite;
+    padding-left:100%;
+  }
+  .tape-track span{margin-right:2.6em;}
+  .tape .up{color:var(--gain);}
+  .tape .code{color:var(--gold-soft); font-weight:600;}
+  @keyframes scroll-tape{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-100%);}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    max-width:920px;
+    margin:0 auto;
+    padding:76px 24px 40px;
+  }
+  .hero .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--gold);
+    margin:0 0 18px;
+  }
+  .hero .eyebrow::before{content:"₹ ";}
+  h1{
+    font-family:var(--serif);
+    font-weight:560;
+    font-size:clamp(34px, 5.4vw, 58px);
+    line-height:1.06;
+    letter-spacing:-0.01em;
+    margin:0 0 22px;
+    color:var(--paper);
+  }
+  h1 em{
+    font-style:italic;
+    font-weight:480;
+    color:var(--gold-soft);
+  }
+  .hero p.lede{
+    font-size:17.5px;
+    color:var(--paper-dim);
+    max-width:640px;
+    margin:0 0 8px;
+  }
+  .hero p.lede + p.lede{margin-top:12px;}
+
+  .stat-strip{
+    display:flex;
+    gap:0;
+    margin-top:36px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .stat{
+    flex:1;
+    padding:16px 18px 16px 0;
+    border-right:1px solid var(--line-soft);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .n{font-family:var(--serif); font-size:26px; color:var(--gold-soft); font-weight:560;}
+  .stat .l{font-size:12.5px; color:var(--muted); margin-top:2px;}
+
+  /* ---------- Filter chips ---------- */
+  .filters{
+    max-width:920px;
+    margin:38px auto 0;
+    padding:0 24px;
+  }
+  .filters .flabel{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    margin-bottom:10px;
+  }
+  .chips{display:flex; flex-wrap:wrap; gap:9px;}
+  .chip{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--paper-dim);
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:100px;
+    padding:7px 14px;
+    cursor:pointer;
+    transition:border-color .15s ease, color .15s ease, background .15s ease;
+    user-select:none;
+  }
+  .chip:hover{border-color:var(--gold);}
+  .chip.active{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:var(--ink);
+    font-weight:600;
+  }
+
+  /* ---------- Roadmap list ---------- */
+  .roadmap{
+    max-width:920px;
+    margin:34px auto 90px;
+    padding:0 24px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+
+  details.track{
+    background:linear-gradient(180deg, var(--panel), var(--panel-2));
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    transition:opacity .2s ease, filter .2s ease;
+  }
+  details.track[data-dim="true"]{opacity:0.32; filter:saturate(0.5);}
+
+  summary.tr{
+    list-style:none;
+    cursor:pointer;
+    padding:20px 22px;
+    display:grid;
+    grid-template-columns:74px 1fr auto auto;
+    align-items:center;
+    gap:18px;
+  }
+  summary.tr::-webkit-details-marker{display:none;}
+  summary.tr::marker{content:"";}
+
+  .tr-code{
+    font-family:var(--mono);
+    font-size:15px;
+    font-weight:600;
+    color:var(--gold-soft);
+    letter-spacing:0.03em;
+  }
+  .tr-code .dot{color:var(--muted); font-weight:400;}
+
+  .tr-main .tr-name{
+    font-family:var(--serif);
+    font-size:20px;
+    font-weight:560;
+    color:var(--paper);
+  }
+  .tr-main .tr-tagline{
+    font-style:italic;
+    color:var(--muted);
+    font-size:13.5px;
+    margin-top:3px;
+  }
+  .tr-main .tr-badges{margin-top:10px; display:flex; flex-wrap:wrap; gap:6px;}
+  .badge{
+    font-family:var(--mono);
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--paper-dim);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:2px 7px;
+  }
+
+  .tr-demand{
+    text-align:right;
+    font-family:var(--mono);
+    white-space:nowrap;
+  }
+  .tr-demand .lvl{font-size:13px; color:var(--gain); font-weight:600;}
+  .tr-demand .lvl.med{color:var(--gold-soft);}
+  .tr-demand .sub{font-size:10.5px; color:var(--muted); margin-top:2px;}
+  .spark{display:block; margin-top:6px;}
+
+  .chev{
+    width:22px; height:22px;
+    border:1px solid var(--line);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--muted);
+    font-size:11px;
+    transition:transform .2s ease;
+  }
+  details[open] .chev{transform:rotate(45deg); border-color:var(--gold); color:var(--gold);}
+
+  .tr-panel{
+    border-top:1px solid var(--line);
+    padding:6px 22px 26px;
+  }
+  .tr-roles{
+    padding:16px 0 20px;
+    font-size:13.5px;
+    color:var(--paper-dim);
+  }
+  .tr-roles b{color:var(--paper); font-weight:600;}
+
+  .quarters{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:14px;
+  }
+  @media (max-width: 860px){
+    .quarters{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width: 560px){
+    .quarters{grid-template-columns:1fr;}
+    summary.tr{grid-template-columns:56px 1fr; row-gap:12px;}
+    .tr-demand{grid-column:1 / -1; text-align:left;}
+    .chev{position:absolute; top:20px; right:20px;}
+    summary.tr{position:relative;}
+  }
+
+  .q{
+    background:var(--ink-2);
+    border:1px solid var(--line-soft);
+    border-radius:8px;
+    padding:14px 14px 16px;
+  }
+  .q .qtag{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .q h4{
+    font-family:var(--serif);
+    font-weight:560;
+    font-size:14.5px;
+    margin:5px 0 10px;
+    color:var(--paper);
+  }
+  .q ul{margin:0 0 10px; padding-left:16px;}
+  .q li{font-size:12.5px; color:var(--paper-dim); margin-bottom:5px;}
+  .q .res{
+    font-size:11.5px;
+    color:var(--muted);
+    border-top:1px dashed var(--line);
+    padding-top:9px;
+    margin-top:9px;
+  }
+  .q .res b{color:var(--paper-dim); font-weight:500; display:block; margin-bottom:3px; font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:0.06em;}
+  .q .res a{color:var(--gold-soft); text-decoration:underline; text-decoration-color:rgba(228,196,101,0.35); text-underline-offset:2px;}
+  .q .res a:hover{text-decoration-color:var(--gold-soft);}
+  footer a{text-decoration:underline; text-decoration-color:rgba(228,196,101,0.35); text-underline-offset:2px;}
+  footer a:hover{text-decoration-color:var(--gold-soft);}
+  .q .mile{
+    margin-top:10px;
+    font-size:11.5px;
+    color:var(--gain);
+    font-weight:500;
+  }
+  .q .mile::before{content:"✓ ";}
+
+  /* ---------- Footer ---------- */
+  footer{
+    max-width:920px;
+    margin:0 auto;
+    padding:36px 24px 70px;
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:12.5px;
+  }
+  footer p{max-width:620px;}
+  footer .fnote{font-family:var(--mono); font-size:11px; margin-top:14px;}
+</style>
+</head>
+<body>
+
+<div class="tape" aria-hidden="true">
+  <div class="tape-track">
+    <span><span class="code">EQTY</span> Equity Research <span class="up">▲ high demand</span></span>
+    <span><span class="code">MFWM</span> Mutual Funds &amp; Wealth <span class="up">▲ high demand</span></span>
+    <span><span class="code">FDAT</span> Financial Data Analytics <span class="up">▲ very high demand</span></span>
+    <span><span class="code">ACTX</span> Accounting &amp; Taxation <span class="up">▲ steady demand</span></span>
+    <span><span class="code">FCAD</span> Financial Consulting <span class="up">▲ high demand</span></span>
+    <span><span class="code">CFRO</span> Corporate &amp; Retail Finance <span class="up">▲ steady demand</span></span>
+    <span><span class="code">EQTY</span> Equity Research <span class="up">▲ high demand</span></span>
+    <span><span class="code">MFWM</span> Mutual Funds &amp; Wealth <span class="up">▲ high demand</span></span>
+    <span><span class="code">FDAT</span> Financial Data Analytics <span class="up">▲ very high demand</span></span>
+    <span><span class="code">ACTX</span> Accounting &amp; Taxation <span class="up">▲ steady demand</span></span>
+    <span><span class="code">FCAD</span> Financial Consulting <span class="up">▲ high demand</span></span>
+    <span><span class="code">CFRO</span> Corporate &amp; Retail Finance <span class="up">▲ steady demand</span></span>
+  </div>
+</div>
+
+<section class="hero">
+  <p class="eyebrow">A Skills Roadmap for MBA Finance Graduates, India</p>
+  <h1>An MBA gets you<br>the <em>interview</em>.<br>These get you the <em>offer</em>.</h1>
+  <p class="lede">Most MBA Finance graduates leave campus knowing the theory of markets, accounting, and valuation — but not the tools recruiters actually test for: a live Excel model, a Tally-ready GST return, a Power BI dashboard, a NISM certificate, a case cracked in fifteen minutes.</p>
+  <p class="lede">This roadmap is organised the way the finance job market actually is: by <strong>role</strong>, not by subject. Pick the ticker that matches where you want to sit — trading floor, wealth desk, analytics team, audit firm, consulting bay, or corporate finance office — and follow it one quarter at a time.</p>
+
+  <div class="stat-strip">
+    <div class="stat"><div class="n">6</div><div class="l">role-based tracks</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">quarters per track</div></div>
+    <div class="stat"><div class="n">100%</div><div class="l">free or low-cost resources</div></div>
+  </div>
+</section>
+
+<div class="filters">
+  <div class="flabel">Filter tracks by tool or skill area</div>
+  <div class="chips" id="chipRow">
+    <button class="chip" data-tag="excel">Advanced Excel</button>
+    <button class="chip" data-tag="erp">Tally &amp; ERP9 / SAP</button>
+    <button class="chip" data-tag="powerbi">Power BI</button>
+    <button class="chip" data-tag="tax">GST &amp; Taxation</button>
+    <button class="chip" data-tag="markets">Equity, MF &amp; Bonds</button>
+    <button class="chip" data-tag="stats">Statistics &amp; SQL</button>
+  </div>
+</div>
+
+<main class="roadmap" id="roadmap">
+
+  <!-- TRACK 1: EQTY -->
+  <details class="track" data-tags="markets excel">
+    <summary class="tr">
+      <div class="tr-code">EQTY<div class="dot">·01</div></div>
+      <div class="tr-main">
+        <div class="tr-name">Equity Research &amp; Stock Broking</div>
+        <div class="tr-tagline">Reads a balance sheet like a form guide, prices a stock before the market does.</div>
+        <div class="tr-badges"><span class="badge">Equity</span><span class="badge">Bonds</span><span class="badge">NISM</span><span class="badge">Excel</span><span class="badge">Valuation</span></div>
+      </div>
+      <div class="tr-demand"><div class="lvl">High demand</div><div class="sub">broking &amp; AMC hiring</div></div>
+      <div class="chev">+</div>
+    </summary>
+    <div class="tr-panel">
+      <div class="tr-roles">Target roles: <b>Equity Research Analyst · Research Associate (broking house) · Investment Analyst · Dealer/Trading Support</b></div>
+      <div class="quarters">
+        <div class="q">
+          <div class="qtag">Q1 · Foundation</div>
+          <h4>Read the numbers before you trade them</h4>
+          <ul>
+            <li>P&amp;L, balance sheet, cash flow — how the three connect</li>
+            <li>Ratio analysis: ROE, ROCE, D/E, P/E, EV/EBITDA</li>
+            <li>How NSE &amp; BSE actually work — order types, settlement</li>
+            <li>Industry mapping: cyclicals vs defensives</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://zerodha.com/varsity/" target="_blank" rel="noopener">Varsity by Zerodha</a> (free) · <a href="https://www.icai.org/" target="_blank" rel="noopener">ICAI</a> financial statement analysis notes · <a href="https://www.moneycontrol.com/" target="_blank" rel="noopener">moneycontrol</a>/<a href="https://www.screener.in/" target="_blank" rel="noopener">screener.in</a> for live filings</div>
+          <div class="mile">Can compute key ratios from a real annual report unaided</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q2 · Tools &amp; Certification</div>
+          <h4>Build the model, get the license</h4>
+          <ul>
+            <li>Excel for equity: comps tables, basic DCF, sensitivity tables</li>
+            <li>NISM Series XV (Research Analyst) exam prep</li>
+            <li>NSE Academy's Certified Capital Market Professional</li>
+            <li>Screening tools: Screener.in, TradingView, NSE/BSE filings</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://www.nism.ac.in/" target="_blank" rel="noopener">NISM</a> official study material (free PDF) · <a href="https://www.nseacademy.com/" target="_blank" rel="noopener">NSE Academy</a> portal · free <a href="https://www.screener.in/" target="_blank" rel="noopener">Screener.in</a> account</div>
+          <div class="mile">First one-page stock pitch memo written</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q3 · Domain Mastery</div>
+          <h4>Sector depth and full valuation</h4>
+          <ul>
+            <li>Sector deep-dives: banking, FMCG, IT services</li>
+            <li>DCF, relative valuation, sum-of-the-parts</li>
+            <li>Bond basics: yield curve, duration, credit rating</li>
+            <li>Writing a sell-side style research note</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://www.cfainstitute.org/" target="_blank" rel="noopener">CFA Institute</a> free investor materials · <a href="https://www.rbi.org.in/" target="_blank" rel="noopener">RBI</a> bond market primer · public sell-side reports on brokerage sites</div>
+          <div class="mile">One full equity research report on a listed NSE company</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q4 · Placement Sprint</div>
+          <h4>Pitch, apply, get in the room</h4>
+          <ul>
+            <li>Mock stock pitches, timed and critiqued</li>
+            <li>Research associate case-style interview practice</li>
+            <li>Resume built around your research report + NISM certificate</li>
+            <li>Target list: Zerodha, ICICI Direct, Motilal Oswal, Angel One, boutique research desks</li>
+          </ul>
+          <div class="mile">Ready to interview for a research associate seat</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- TRACK 2: MFWM -->
+  <details class="track" data-tags="markets excel">
+    <summary class="tr">
+      <div class="tr-code">MFWM<div class="dot">·02</div></div>
+      <div class="tr-main">
+        <div class="tr-name">Mutual Funds &amp; Wealth Management</div>
+        <div class="tr-tagline">Turns someone's salary slip into a twenty-year plan.</div>
+        <div class="tr-badges"><span class="badge">Mutual Funds</span><span class="badge">Bonds</span><span class="badge">AMFI</span><span class="badge">Excel</span><span class="badge">Taxation</span></div>
+      </div>
+      <div class="tr-demand"><div class="lvl">High demand</div><div class="sub">AMCs &amp; wealth desks</div></div>
+      <div class="chev">+</div>
+    </summary>
+    <div class="tr-panel">
+      <div class="tr-roles">Target roles: <b>Mutual Fund Analyst · Wealth Management Associate · Relationship Manager (Investments) · AMFI-registered Distributor</b></div>
+      <div class="quarters">
+        <div class="q">
+          <div class="qtag">Q1 · Foundation</div>
+          <h4>How money grows, on paper first</h4>
+          <ul>
+            <li>Equity, debt &amp; hybrid mutual funds — how NAV moves</li>
+            <li>SIP mechanics, expense ratios, exit loads</li>
+            <li>Risk profiling a client, not a product</li>
+            <li>Insurance &amp; retirement products, at a glance</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://www.amfiindia.com/" target="_blank" rel="noopener">AMFI</a> investor awareness material (free) · <a href="https://zerodha.com/varsity/" target="_blank" rel="noopener">Varsity by Zerodha</a> mutual fund module</div>
+          <div class="mile">Can explain three fund categories to a non-finance friend, correctly</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q2 · Tools &amp; Certification</div>
+          <h4>Get licensed, get modelling</h4>
+          <ul>
+            <li>NISM Series V-A (Mutual Fund Distributors) certification</li>
+            <li>Excel goal-based planning: SIP &amp; retirement corpus calculators</li>
+            <li>Basics of CRM tools used in client tracking</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://www.nism.ac.in/" target="_blank" rel="noopener">NISM</a> official study material (Series V-A) · <a href="https://www.amfiindia.com/" target="_blank" rel="noopener">AMFI</a> mock test bank</div>
+          <div class="mile">NISM V-A certification attempted; one working SIP calculator built</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q3 · Domain Mastery</div>
+          <h4>Build the plan, not just the pitch</h4>
+          <ul>
+            <li>Asset allocation strategy across life stages</li>
+            <li>Debt fund fundamentals: duration &amp; credit risk</li>
+            <li>Tax treatment of investments under the current Income Tax Act — LTCG/STCG, indexation rules</li>
+            <li>Behavioural finance: why clients sell at the bottom</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://www.incometax.gov.in/" target="_blank" rel="noopener">incometax.gov.in</a> capital gains guidance · <a href="https://www.rbi.org.in/" target="_blank" rel="noopener">RBI</a> / <a href="https://investor.sebi.gov.in/" target="_blank" rel="noopener">SEBI investor education</a> pages</div>
+          <div class="mile">One full financial plan built for a hypothetical client</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q4 · Placement Sprint</div>
+          <h4>Sit across the table, calmly</h4>
+          <ul>
+            <li>Mock client conversations — objection handling</li>
+            <li>Resume built around your certification + sample plan</li>
+            <li>Target list: HDFC MF, SBI MF, bank wealth desks, boutique advisory firms, Groww/INDmoney-style fintechs</li>
+          </ul>
+          <div class="mile">Ready to interview for a wealth/RM associate seat</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- TRACK 3: FDAT -->
+  <details class="track" data-tags="excel powerbi stats">
+    <summary class="tr">
+      <div class="tr-code">FDAT<div class="dot">·03</div></div>
+      <div class="tr-main">
+        <div class="tr-name">Financial Data Analytics</div>
+        <div class="tr-tagline">Turns forty thousand rows of transactions into one chart the CFO trusts.</div>
+        <div class="tr-badges"><span class="badge">Advanced Excel</span><span class="badge">Power BI</span><span class="badge">SQL</span><span class="badge">Statistics</span><span class="badge">FP&amp;A</span></div>
+      </div>
+      <div class="tr-demand"><div class="lvl">Very high demand</div><div class="sub">GCCs &amp; analytics teams</div></div>
+      <div class="chev">+</div>
+    </summary>
+    <div class="tr-panel">
+      <div class="tr-roles">Target roles: <b>Financial Data Analyst · FP&amp;A Analyst · Business Analyst (Finance) · MIS Executive</b></div>
+      <div class="quarters">
+        <div class="q">
+          <div class="qtag">Q1 · Foundation</div>
+          <h4>Clean data, sharp Excel</h4>
+          <ul>
+            <li>Pivot tables, Power Query, XLOOKUP/INDEX-MATCH</li>
+            <li>What-if analysis, data validation, named ranges</li>
+            <li>Data cleaning fundamentals — messy to model-ready</li>
+            <li>Intro statistics: mean, median, distribution, correlation</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://exceljet.net/" target="_blank" rel="noopener">ExcelJet</a>, <a href="https://chandoo.org/" target="_blank" rel="noopener">Chandoo.org</a> (free tutorials) · <a href="https://www.youtube.com/@codebasics" target="_blank" rel="noopener">Codebasics</a> YouTube (Excel &amp; stats playlists)</div>
+          <div class="mile">Can turn a raw transaction export into a clean pivot report</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q2 · Tools &amp; Certification</div>
+          <h4>Dashboards that don't need explaining</h4>
+          <ul>
+            <li>Power BI: data modelling, relationships, basic DAX</li>
+            <li>SQL fundamentals for pulling financial data</li>
+            <li>Awareness of the Microsoft PL-300 (Power BI) certification path</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://learn.microsoft.com/en-us/power-bi/" target="_blank" rel="noopener">Microsoft Learn</a> Power BI modules (free) · <a href="https://www.youtube.com/@codebasics" target="_blank" rel="noopener">Codebasics</a> SQL &amp; Power BI playlists</div>
+          <div class="mile">First interactive Power BI dashboard, built and shared</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q3 · Domain Mastery</div>
+          <h4>Model the business, not just the data</h4>
+          <ul>
+            <li>3-statement financial modelling</li>
+            <li>Budgeting &amp; forecasting mechanics</li>
+            <li>Statistical analysis for finance: regression, variance analysis</li>
+            <li>End-to-end FP&amp;A dashboard build</li>
+          </ul>
+          <div class="res"><b>Resources</b>Public company financials — <a href="https://www.nseindia.com/" target="_blank" rel="noopener">NSE</a> / <a href="https://www.bseindia.com/" target="_blank" rel="noopener">BSE</a> filings as practice datasets</div>
+          <div class="mile">One FP&amp;A dashboard built on real public-company data</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q4 · Placement Sprint</div>
+          <h4>Show the dashboard, not the degree</h4>
+          <ul>
+            <li>Portfolio project: end-to-end Power BI dashboard on a public dataset</li>
+            <li>Resume rebuilt around tools, not just coursework</li>
+            <li>Target list: GCCs (Global Capability Centres), FP&amp;A teams, analytics consultancies</li>
+          </ul>
+          <div class="mile">Ready to interview for a financial/data analyst seat</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- TRACK 4: ACTX -->
+  <details class="track" data-tags="erp tax">
+    <summary class="tr">
+      <div class="tr-code">ACTX<div class="dot">·04</div></div>
+      <div class="tr-main">
+        <div class="tr-name">Accounting, Taxation &amp; Financial Reporting</div>
+        <div class="tr-tagline">Closes the books, files the return, sleeps fine on the 20th.</div>
+        <div class="tr-badges"><span class="badge">Tally Prime</span><span class="badge">GST</span><span class="badge">Income Tax Act</span><span class="badge">Ind AS</span><span class="badge">Audit</span></div>
+      </div>
+      <div class="tr-demand"><div class="lvl med">Steady demand</div><div class="sub">CA firms, KPOs, corporates</div></div>
+      <div class="chev">+</div>
+    </summary>
+    <div class="tr-panel">
+      <div class="tr-roles">Target roles: <b>Accounts Executive · Taxation Associate · Audit Assistant · Financial Reporting Analyst</b></div>
+      <div class="quarters">
+        <div class="q">
+          <div class="qtag">Q1 · Foundation</div>
+          <h4>The ledger, properly</h4>
+          <ul>
+            <li>Accounting standards — Ind AS essentials</li>
+            <li>Double-entry bookkeeping, refreshed and drilled</li>
+            <li>Journal → ledger → trial balance → financial statements</li>
+            <li>Tally Prime basics: vouchers, ledgers, inventory</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://www.icai.org/" target="_blank" rel="noopener">ICAI</a> Ind AS resource centre (free) · <a href="https://tallyeducation.com/" target="_blank" rel="noopener">Tally's own courseware</a> · <a href="https://www.youtube.com/@CARachanaRanade" target="_blank" rel="noopener">CA Rachana Ranade</a> YouTube</div>
+          <div class="mile">Can finalise a simple trial balance into P&amp;L and balance sheet</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q2 · Tools &amp; Certification</div>
+          <h4>GST-ready and audit-ready</h4>
+          <ul>
+            <li>Tally Prime advanced: GST-ready invoicing, TDS, payroll</li>
+            <li>GST return process: GSTR-1, GSTR-3B, reconciliation</li>
+            <li>Tally certification track (TallyEssential / TallyProfessional)</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://www.gst.gov.in/" target="_blank" rel="noopener">GST portal's</a> own guides · <a href="https://cleartax.in/" target="_blank" rel="noopener">ClearTax</a> GST explainers · <a href="https://tallyeducation.com/" target="_blank" rel="noopener">Tally certification courseware</a></div>
+          <div class="mile">Simulated GST return filed end-to-end in Tally</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q3 · Domain Mastery</div>
+          <h4>The Income Tax Act, as it applies now</h4>
+          <ul>
+            <li>Heads of income, deductions, TDS provisions</li>
+            <li>New vs old tax regime — when each applies</li>
+            <li>Statutory compliance calendar</li>
+            <li>Internal &amp; statutory audit basics</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://www.incometax.gov.in/" target="_blank" rel="noopener">incometax.gov.in</a> official guides &amp; e-filing portal · <a href="https://www.icai.org/" target="_blank" rel="noopener">ICAI</a> compliance calendars · <a href="https://cleartax.in/" target="_blank" rel="noopener">ClearTax</a> explainers</div>
+          <div class="mile">Can finalise accounts for a sample company, statutory-ready</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q4 · Placement Sprint</div>
+          <h4>Prove it, then apply</h4>
+          <ul>
+            <li>Mock month-end close &amp; GST/TDS filing simulation</li>
+            <li>Resume built around Tally + GST + Ind AS proof points</li>
+            <li>Target list: CA firms, tax &amp; accounting KPOs, corporate F&amp;A teams</li>
+          </ul>
+          <div class="mile">Ready to interview for an accounts/tax associate seat</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- TRACK 5: FCAD -->
+  <details class="track" data-tags="excel">
+    <summary class="tr">
+      <div class="tr-code">FCAD<div class="dot">·05</div></div>
+      <div class="tr-main">
+        <div class="tr-name">Financial Consulting &amp; Advisory</div>
+        <div class="tr-tagline">Walks into a client's mess with a framework, walks out with a fix.</div>
+        <div class="tr-badges"><span class="badge">Corporate Finance</span><span class="badge">Valuation</span><span class="badge">Case Method</span><span class="badge">Excel</span><span class="badge">Storytelling</span></div>
+      </div>
+      <div class="tr-demand"><div class="lvl">High demand</div><div class="sub">Big4 &amp; boutique advisory</div></div>
+      <div class="chev">+</div>
+    </summary>
+    <div class="tr-panel">
+      <div class="tr-roles">Target roles: <b>Business Analyst (Consulting) · Financial Advisory Associate · Junior Consultant</b></div>
+      <div class="quarters">
+        <div class="q">
+          <div class="qtag">Q1 · Foundation</div>
+          <h4>Structure before you solve</h4>
+          <ul>
+            <li>Problem structuring: MECE, profitability trees</li>
+            <li>Corporate finance basics: capital structure, cost of capital</li>
+            <li>Industry &amp; company research methods</li>
+          </ul>
+          <div class="res"><b>Resources</b>Free case-cracking frameworks on <a href="https://www.preplounge.com/en" target="_blank" rel="noopener">PrepLounge</a> and other consulting prep sites</div>
+          <div class="mile">Can structure an open-ended business problem into a clean tree</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q2 · Tools &amp; Certification</div>
+          <h4>Build the model, build the deck</h4>
+          <ul>
+            <li>Advanced Excel for consulting: sensitivity &amp; scenario models</li>
+            <li>Slide storytelling: situation-complication-resolution</li>
+            <li>M&amp;A basics: synergies, due diligence at a glance</li>
+          </ul>
+          <div class="res"><b>Resources</b>Free consulting toolkit templates (widely available) · public M&amp;A case studies</div>
+          <div class="mile">First advisory-style slide deck built for a mock client problem</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q3 · Domain Mastery</div>
+          <h4>Case after case after case</h4>
+          <ul>
+            <li>Market sizing, profitability, and M&amp;A case types</li>
+            <li>Writing a mock advisory memo</li>
+            <li>Consulting deliverable structures, done properly</li>
+          </ul>
+          <div class="res"><b>Resources</b>Free case interview practice guides and sample case banks on <a href="https://www.preplounge.com/en/case-library" target="_blank" rel="noopener">PrepLounge's case library</a></div>
+          <div class="mile">Can crack a timed case in under 20 minutes, unaided</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q4 · Placement Sprint</div>
+          <h4>The interview is a case, treat it like one</h4>
+          <ul>
+            <li>Timed mock case interviews with feedback</li>
+            <li>Case-cracking portfolio — three worked examples, written up</li>
+            <li>Target list: Big4 advisory arms, boutique financial consulting firms, corporate strategy teams</li>
+          </ul>
+          <div class="mile">Ready to interview for a junior consultant/BA seat</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- TRACK 6: CFRO -->
+  <details class="track" data-tags="erp powerbi">
+    <summary class="tr">
+      <div class="tr-code">CFRO<div class="dot">·06</div></div>
+      <div class="tr-main">
+        <div class="tr-name">Corporate Finance, Retail &amp; ERP Operations</div>
+        <div class="tr-tagline">Makes sure the till, the ledger, and the balance sheet agree at month-end.</div>
+        <div class="tr-badges"><span class="badge">SAP FICO</span><span class="badge">Tally ERP9</span><span class="badge">Working Capital</span><span class="badge">Power BI</span><span class="badge">Retail Finance</span></div>
+      </div>
+      <div class="tr-demand"><div class="lvl med">Steady demand</div><div class="sub">retail, FMCG, manufacturing</div></div>
+      <div class="chev">+</div>
+    </summary>
+    <div class="tr-panel">
+      <div class="tr-roles">Target roles: <b>Finance Executive (Retail/Commerce) · ERP Support Analyst · Treasury / Corporate Finance Associate</b></div>
+      <div class="quarters">
+        <div class="q">
+          <div class="qtag">Q1 · Foundation</div>
+          <h4>Where retail meets the ledger</h4>
+          <ul>
+            <li>Retail &amp; commerce finance basics: inventory costing, working capital cycle</li>
+            <li>POS-to-ledger flow, store-level cash handling</li>
+            <li>ERP landscape overview: SAP FICO vs Tally ERP9/Prime</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://learning.sap.com/" target="_blank" rel="noopener">SAP Learning</a> free introductory modules · <a href="https://help.tallysolutions.com/" target="_blank" rel="noopener">Tally ERP9 documentation</a></div>
+          <div class="mile">Can trace a single sale from POS entry to ledger posting</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q2 · Tools &amp; Certification</div>
+          <h4>Get comfortable inside the ERP</h4>
+          <ul>
+            <li>SAP FICO fundamentals — free/intro-level modules</li>
+            <li>Tally ERP9 advanced operations</li>
+            <li>Budgeting &amp; variance reporting basics</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://learning.sap.com/" target="_blank" rel="noopener">SAP Learning Hub</a> free-tier content · <a href="https://tallyeducation.com/" target="_blank" rel="noopener">Tally certification courseware</a></div>
+          <div class="mile">Can post and reconcile a set of transactions inside an ERP sandbox</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q3 · Domain Mastery</div>
+          <h4>Treasury, working capital, and store P&amp;L</h4>
+          <ul>
+            <li>Working capital management, cash flow forecasting</li>
+            <li>Treasury basics: banking relationships, liquidity planning</li>
+            <li>Retail-specific reporting: store-level P&amp;L, shrinkage, margin analysis</li>
+            <li>Power BI for finance ops dashboards</li>
+          </ul>
+          <div class="res"><b>Resources</b><a href="https://www.youtube.com/@codebasics" target="_blank" rel="noopener">Codebasics</a> Power BI playlist · public retail company annual reports as case material</div>
+          <div class="mile">One store/business-unit P&amp;L dashboard built end-to-end</div>
+        </div>
+        <div class="q">
+          <div class="qtag">Q4 · Placement Sprint</div>
+          <h4>Close the books, then apply</h4>
+          <ul>
+            <li>Mock month-end close exercise, ERP-based</li>
+            <li>Resume built around ERP + dashboard proof points</li>
+            <li>Target list: retail chains' finance teams, FMCG/manufacturing corporate finance, ERP implementation &amp; support roles</li>
+          </ul>
+          <div class="mile">Ready to interview for a finance/ERP executive seat</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+</main>
+
+<footer>
+  <p>This roadmap organises finance careers the way hiring managers actually think about them — by role first, tools second. Each track is a self-contained, four-quarter path built entirely on free or low-cost, widely available resources: regulator and industry-body material (<a href="https://www.nism.ac.in/" target="_blank" rel="noopener">NISM</a>, <a href="https://www.amfiindia.com/" target="_blank" rel="noopener">AMFI</a>, <a href="https://www.icai.org/" target="_blank" rel="noopener">ICAI</a>, <a href="https://www.gst.gov.in/" target="_blank" rel="noopener">GST portal</a>, <a href="https://www.incometax.gov.in/" target="_blank" rel="noopener">Income Tax Department</a>), free courseware from <a href="https://tallyeducation.com/" target="_blank" rel="noopener">Tally</a> and <a href="https://learn.microsoft.com/en-us/power-bi/" target="_blank" rel="noopener">Microsoft</a>, and well-known public YouTube channels.</p>
+  <p class="fnote">Built by Aasha Infinite Foundation for MBA Finance graduates entering the Indian job market. Edit the HTML directly to add tracks, swap resources, or localise content.</p>
+</footer>
+
+<script>
+  (function(){
+    var chips = document.querySelectorAll('.chip');
+    var tracks = document.querySelectorAll('.track');
+    var active = new Set();
+
+    chips.forEach(function(chip){
+      chip.addEventListener('click', function(){
+        var tag = chip.getAttribute('data-tag');
+        if(active.has(tag)){
+          active.delete(tag);
+          chip.classList.remove('active');
+        } else {
+          active.add(tag);
+          chip.classList.add('active');
+        }
+        applyFilter();
+      });
+    });
+
+    function applyFilter(){
+      if(active.size === 0){
+        tracks.forEach(function(t){ t.removeAttribute('data-dim'); });
+        return;
+      }
+      tracks.forEach(function(t){
+        var tags = (t.getAttribute('data-tags') || '').split(' ');
+        var match = tags.some(function(tag){ return active.has(tag); });
+        if(match){ t.removeAttribute('data-dim'); }
+        else { t.setAttribute('data-dim', 'true'); }
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
