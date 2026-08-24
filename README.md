@@ -1,2 +1,2 @@
 # deepak-mba-finance-aasha
-This repository describes the roadmap for acquiring skills essential for MBA Finance stream graduate students
+This repository helps MBA Finance graduate students acquire skills essential in the modern world of fast-paced development in financial management and analysis.
